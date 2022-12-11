@@ -2,7 +2,11 @@
 console.log("working");
 
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([40.7, -94.5], 4);
+// center on USA
+// let map = L.map('mapid').setView([40.7, -94.5], 4);
+
+// center on LA,CA
+let map = L.map('mapid').setView([34.0522,-118.2437], 14);
 
 // // Create the map object with a center and zoom level.
 // let map = L.map("mapid", {
@@ -11,6 +15,27 @@ let map = L.map('mapid').setView([40.7, -94.5], 4);
 //     ],
 //     zoom: 4
 //   });
+
+// Add a marker to the map for LA,CA
+// let marker = L.marker([34.0522,-118.2437]).addTo(map)
+
+// Add circle marker to the map for LA,CA
+// L.circle([34.0522,-118.2437], {
+//     radius:300,
+//     color: 'black',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.2
+// }).addTo(map);
+
+
+//  Add circle marker using circleMarker function
+
+L.circleMarker([34.0522,-118.2437], {
+    radius: 300,
+    color: 'black',
+    fillColor: '#ffffa1',
+}).addTo(map);
+
 
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -21,5 +46,6 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
     zoomOffset: -1,
     accessToken: API_KEY
 });
+
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
