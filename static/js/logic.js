@@ -1,12 +1,19 @@
 // Add console.log to check to see if our code is working.
 console.log("working");
 
+// Get data from cities
+let cityData = cities
+// Loop through the cities array and create one marker for each city.
+cities.forEach(function(city) {
+    console.log(city)
+   });
+
 // Create the map object with a center and zoom level.
 // center on USA
-// let map = L.map('mapid').setView([40.7, -94.5], 4);
+let map = L.map('mapid').setView([40.7, -94.5], 4);
 
 // center on LA,CA
-let map = L.map('mapid').setView([34.0522,-118.2437], 14);
+// let map = L.map('mapid').setView([34.0522,-118.2437], 14);
 
 // // Create the map object with a center and zoom level.
 // let map = L.map("mapid", {
@@ -30,11 +37,25 @@ let map = L.map('mapid').setView([34.0522,-118.2437], 14);
 
 //  Add circle marker using circleMarker function
 
-L.circleMarker([34.0522,-118.2437], {
-    radius: 300,
-    color: 'black',
-    fillColor: '#ffffa1',
-}).addTo(map);
+// L.circleMarker([34.0522,-118.2437], {
+//     radius: 300,
+//     color: 'black',
+//     fillColor: '#ffffa1',
+// }).addTo(map);
+
+// Add marker for each city in cities
+
+cityData.forEach(function(city){
+    console.log(city);
+    L.circleMarker(city.location, {
+        radius: city.population/200000,
+        color: 'orange',
+        fillColor: 'orange',
+        weight: 4
+    })
+    .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population + "</h3>")
+    .addTo(map);
+})
 
 
 // We create the tile layer that will be the background of our map.
