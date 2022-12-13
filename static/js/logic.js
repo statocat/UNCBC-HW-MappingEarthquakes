@@ -32,6 +32,7 @@ let airportData = "https://raw.githubusercontent.com/statocat/UNCBC-HW14-Mapping
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
   console.log(data);
+  
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJSON(data, {
     onEachFeature: function(feature, layer){
@@ -44,8 +45,3 @@ d3.json(airportData).then(function(data) {
     }
   }).addTo(map)
 }); 
-
-// // Then we add our 'graymap' tile layer to the map.
-// streets.addTo(map);
-
-airportData
