@@ -8,13 +8,9 @@ body,
 }
 
 .legend {
-    line-height: 18px;
-    color: #555;
-}
-
-.Legend-colorBox {
-    width: 1.5rem;
-    height: 1.5rem;
-    display: inline-block;
-    background-color: blue;
+  padding: 10px;
+  line-height: 18px;
+  color: #555;
+  background-color: #fff;
+  border-radius: 5px;
 }
