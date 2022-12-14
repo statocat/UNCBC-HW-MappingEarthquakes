@@ -66,7 +66,7 @@ d3.json( "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geo
     }
 
     // This function determines the color of the circle based on the magnitude of the earthquake.
-function getColor(magnitude) {
+  function getColor(magnitude) {
     if (magnitude > 5) {
       return "#ea2c2c";
     }
@@ -99,7 +99,7 @@ function getColor(magnitude) {
     onEachFeature: function(feature, layer) {
         layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>" + "Location: " + feature.properties.place);
     }
-      }).addTo(earthquakes);
+  }).addTo(earthquakes);
 });
 
 earthquakes.addTo(map);
@@ -113,27 +113,27 @@ earthquakes.addTo(map);
 //     '#ea2c2c'
 // }
 
-  var legend = L.control({position: 'bottomright'});
+var legend = L.control({position: 'bottomright'});
 
-  legend.onAdd = function (map) {
+legend.onAdd = function (map) {
   
-      var div = L.DomUtil.create('div');
-      div.innerHTML += "<h4>Magnitude</h4>";
-      div.innerHTML += "<i class='fas fa-square' style='color:#ea2c2c'></i> <span>0-1</span><br>";
-      div.innerHTML += "<i style='background:#ea822c'></i> <span></span>1-2<br>";
-      div.innerHTML += "<i style='background:#ee9c00'></i> <span></span>2-3<br>";
-      div.innerHTML += "<i style='background:#eecc00'></i> <span></span>3-4<br>";
-      div.innerHTML += "<i style='background:#d4ee00'></i> <span></span>4-5<br>";
-      div.innerHTML += "<i style='background:#98ee00'></i> <span></span>5+<br>";
+  var div = L.DomUtil.create('div');
+  div.innerHTML += "<h4>Magnitude</h4>";
+  div.innerHTML += "<i class='fas fa-square' style='color:#ea2c2c'></i> <span>0-1</span><br>";
+  div.innerHTML += "<i style='background:#ea822c'></i> <span></span>1-2<br>";
+  div.innerHTML += "<i style='background:#ee9c00'></i> <span></span>2-3<br>";
+  div.innerHTML += "<i style='background:#eecc00'></i> <span></span>3-4<br>";
+  div.innerHTML += "<i style='background:#d4ee00'></i> <span></span>4-5<br>";
+  div.innerHTML += "<i style='background:#98ee00'></i> <span></span>5+<br>";
   
-    //   // loop through our density intervals and generate a label with a colored square for each interval
-    //   for (var i = 0; i < grades.length; i++) {
-    //       div.innerHTML +=
-    //           '<i style="background:' + setColor(grades[i] + 1) + '"></i> ' +
-    //           grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    //   }
+  //   // loop through our density intervals and generate a label with a colored square for each interval
+  //   for (var i = 0; i < grades.length; i++) {
+  //       div.innerHTML +=
+  //           '<i style="background:' + setColor(grades[i] + 1) + '"></i> ' +
+  //           grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+  //   }
   
-      return div;
+  return div;
   };
   
   legend.addTo(map);
