@@ -103,3 +103,37 @@ function getColor(magnitude) {
 });
 
 earthquakes.addTo(map);
+
+// function setColor(mag) {
+//     return mag > 5 ? '#98ee00' :
+//     mag > 4 ? '#d4ee00' :
+//     mag > 3 ? '#eecc00' :
+//     mag > 2 ? '#ee9c00' :
+//     mag > 1 ? '#ea822c' :
+//     '#ea2c2c'
+// }
+
+  var legend = L.control({position: 'bottomright'});
+
+  legend.onAdd = function (map) {
+  
+      var div = L.DomUtil.create('div');
+      div.innerHTML += "<h4>Magnitude</h4>";
+      div.innerHTML += "<i class='fas fa-square' style='color:#ea2c2c'></i> <span>0-1</span><br>";
+      div.innerHTML += "<i style='background:#ea822c'></i> <span></span>1-2<br>";
+      div.innerHTML += "<i style='background:#ee9c00'></i> <span></span>2-3<br>";
+      div.innerHTML += "<i style='background:#eecc00'></i> <span></span>3-4<br>";
+      div.innerHTML += "<i style='background:#d4ee00'></i> <span></span>4-5<br>";
+      div.innerHTML += "<i style='background:#98ee00'></i> <span></span>5+<br>";
+  
+    //   // loop through our density intervals and generate a label with a colored square for each interval
+    //   for (var i = 0; i < grades.length; i++) {
+    //       div.innerHTML +=
+    //           '<i style="background:' + setColor(grades[i] + 1) + '"></i> ' +
+    //           grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    //   }
+  
+      return div;
+  };
+  
+  legend.addTo(map);
